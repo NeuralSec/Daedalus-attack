@@ -8,7 +8,7 @@ Some results are displayed here:
 
 ---
 
-**Running the attack:**
+**Running the attack on YOLO-v3:**
 1. Download [yolo.h5](https://1drv.ms/u/s!AqftEu9YAdEGidZ7vEm-4v4c2sV-Lw) and put it into '../data/';
 2. Put the original images into '../Datasets/COCO/val2017/';
 3. Run l2_yolov3.py.
