@@ -4,3 +4,8 @@ We propose an attack, in which we can tune the strength of the attack and specif
 
 Some results are displayed here:
 ![Alt text](resources/l2attack.jpg)
+
+Running attack:
+1. Download yolo.h5 and put it into '../data/';
+2. Put the original images into '../Datasets/COCO/val2017/';
+3. Run l2_yolov3.py;
