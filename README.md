@@ -5,7 +5,7 @@ We propose an attack, in which we can tune the strength of the attack and specif
 
 Some results are displayed here:
 ![Alt text](resources/l2attack.jpg)
-*Adversarial examples made by our $L_2$ attack. The first row contains original images. The third row contains our low-confidence (0.3) adversarial examples. The fifth row contains our high-confidence (0.7) examples. The detection results from YOLO-v3 are in the rows below them. The confidence controls the density of the redundant detection boxes in the detection results.*
+*Adversarial examples made by our L2 attack. The first row contains original images. The third row contains our low-confidence (0.3) adversarial examples. The fifth row contains our high-confidence (0.7) examples. The detection results from YOLO-v3 are in the rows below them. The confidence controls the density of the redundant detection boxes in the detection results.*
 
 ---
 
