@@ -22,4 +22,4 @@ Some results are displayed here:
 **Running ensemble attack to craft robust adversarial examples:**
 Run l2_ensemble.py
 
-All attack can specify object category to attack.
+All attack can specify object category to attack. The crafted adversarial examples will be stored as 416X416 sized .png files in the folder '../adv_examples/...'. The adversarial can be tested on official darknet and retinanet.
