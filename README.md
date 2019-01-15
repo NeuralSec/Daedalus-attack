@@ -10,12 +10,12 @@ Some results are displayed here:
 ---
 
 **Running the attack against YOLO-v3:**
-1. Download [yolo.h5](https://1drv.ms/u/s!AqftEu9YAdEGidZ7vEm-4v4c2sV-Lw) and put it into '../data/';
+1. Download [yolo.h5](https://1drv.ms/u/s!AqftEu9YAdEGidZ7vEm-4v4c2sV-Lw) and put it into '../model';
 2. Put the original images into '../Datasets/COCO/val2017/';
 3. Run l2_yolov3.py.
 
 **Running the attack against RetinaNet:**
-1. Download [resnet50_coco_best_v2.1.0.h5](https://drive.google.com/file/d/1N6Xg5SOW8Ic4hpC8PoIRvggcstx0HcXw/view?usp=sharing) and put it into '../RetinaNet/snapshots/';
+1. Download [resnet50_coco_best_v2.1.0.h5](https://drive.google.com/file/d/1N6Xg5SOW8Ic4hpC8PoIRvggcstx0HcXw/view?usp=sharing) and put it into '../model';
 2. Put the original images into '../Datasets/COCO/val2017/';
 3. Run l2_retinanet.py.
 
