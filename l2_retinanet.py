@@ -324,7 +324,7 @@ if __name__ == '__main__':
 	init = tf.global_variables_initializer()
 	sess.run(init)
 	# models can be downloaded here: https://github.com/fizyr/keras-retinanet/releases
-	model_path = os.path.join('/model', 'resnet50_coco_best_v2.1.0.h5')
+	model_path = os.path.join('model', 'resnet50_coco_best_v2.1.0.h5')
 	# load retinanet model
 	ORACLE = models.load_model(model_path, backbone_name='resnet50')
 	ORACLE.layers.pop()
