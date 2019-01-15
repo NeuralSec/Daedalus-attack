@@ -1,8 +1,7 @@
 import os
 import sys
 # supress tensorflow logging other than errors
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-sys.path.insert(0, '..')
+#os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 from keras import backend as K
 import numpy as np
@@ -16,11 +15,10 @@ from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2
 from keras.layers import Conv2D, MaxPooling2D, Input
 from keras.layers import Dense, Dropout, Activation, Flatten
 
-from keras.datasets import cifar10
 from keras.models import load_model
 from keras.callbacks import EarlyStopping
 
-from YOLOv3.model.yolo_model import YOLO
+from model.yolo_model import YOLO
 import cv2
 import matplotlib.pyplot as plt
 from skimage import io
@@ -28,7 +26,7 @@ import time
 
 # Parameter settings:
 GPU_ID = 0							# which gpu to used
-ATTACK_MODE = 'single'				# select attack mode from 'all', 'most', 'least' and 'single';
+ATTACK_MODE = 'all'				# select attack mode from 'all', 'most', 'least' and 'single';
 ATTACK_CLASS = 'person'				# select the class to attack in 'single' mode
 CONFIDENCE = 0.3					# the confidence of attack
 EXAMPLE_NUM = 10					# total number of adversarial example to generate.
@@ -40,7 +38,6 @@ CLASS_NUM = 80						# 80 for COCO dataset
 MAX_ITERATIONS = 10000      		# number of iterations to perform gradient descent
 ABORT_EARLY = True          		# if we stop improving, abort gradient descent early
 LEARNING_RATE = 1e-2        		# larger values converge faster to less accurate results
-YOLO_OUT_SHAPE = (13, 13, 3, 85)    # yolo output shape
 IMAGE_SHAPE = (416, 416, 3)         # input image shape
 SAVE_PATH = 'adv_examples/L2/f3/{0}/'.format(ATTACK_MODE)
 # select GPU to use
@@ -246,7 +243,7 @@ class Daedalus:
 	"""
 	Daedalus adversarial example generator based on the Yolo v3 model.
 	"""
-	def __init__(self, sess, model, target_class=ATTACK_CLASS, attack_mode=ATTACK_MODE, img_shape=IMAGE_SHAPE, yolo_shape=YOLO_OUT_SHAPE,
+	def __init__(self, sess, model, target_class=ATTACK_CLASS, attack_mode=ATTACK_MODE, img_shape=IMAGE_SHAPE,
 				 batch_size=BATCH_SIZE, confidence=CONFIDENCE, learning_rate=LEARNING_RATE, binary_search_steps=BINARY_SEARCH_STEPS,
 				 max_iterations=MAX_ITERATIONS, abort_early=ABORT_EARLY, initial_consts=INITIAL_consts, boxmin=0, boxmax=1):
 
@@ -270,9 +267,11 @@ class Daedalus:
 			print(class_counts)
 			if mode == 'all':
 				selected_boxes = tf.reshape(boxes, [BATCH_SIZE, -1, 4])
-				selected_objectness = tf.reshape(objectness, [BATCH_SIZE, -1, 1])
 				selected_scores = tf.reshape(box_scores, [BATCH_SIZE, -1, CLASS_NUM])
-				return   selected_boxes, selected_objectness, selected_scores
+				if objectness == None:
+					return selected_boxes, None, selected_scores
+				selected_objectness = tf.reshape(objectness, [BATCH_SIZE, -1, 1])
+				return selected_boxes, selected_objectness, selected_scores
 			elif mode == 'most':
 				selected_cls = tf.argmax(class_counts)
 			elif mode == 'least':
@@ -288,11 +287,13 @@ class Daedalus:
 			index = tf.equal(box_classes, selected_cls)
 			index = tf.cast(index, tf.int32)
 			_, selected_boxes = tf.dynamic_partition(boxes, index, num_partitions=2, name='dynamic_partition')
-			_, selected_objectness = tf.dynamic_partition(objectness, index, num_partitions=2, name='dynamic_partition')
 			_, selected_scores = tf.dynamic_partition(box_scores, index, num_partitions=2, name='dynamic_partition')
 			selected_boxes = tf.reshape(selected_boxes, [BATCH_SIZE, -1, 4])
-			selected_objectness = tf.reshape(selected_objectness, [BATCH_SIZE, -1, 1])
 			selected_scores = tf.reshape(selected_scores, [BATCH_SIZE, -1, CLASS_NUM])
+			if objectness == None:
+				return selected_boxes, None, selected_scores
+			_, selected_objectness = tf.dynamic_partition(objectness, index, num_partitions=2, name='dynamic_partition')
+			selected_objectness = tf.reshape(selected_objectness, [BATCH_SIZE, -1, 1])
 			return selected_boxes, selected_objectness, selected_scores
 
 		# the perturbation we're going to optimize:
