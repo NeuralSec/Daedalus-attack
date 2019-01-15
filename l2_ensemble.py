@@ -52,7 +52,7 @@ def load_yolo():
 	return YOLO(0.5, 0.5)
 
 def load_retinanet():
-	model_path = os.path.join('../RetinaNet/snapshots', 'resnet50_coco_best_v2.1.0.h5')
+	model_path = os.path.join('/model', 'resnet50_coco_best_v2.1.0.h5')
 	# load retinanet model
 	oracle = retina_models.load_model(model_path, backbone_name='resnet50')
 	oracle.layers.pop()
