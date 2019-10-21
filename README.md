@@ -9,7 +9,7 @@ Some results are displayed here:
 
 **Attacking through Daedalus poster**
 We instantiated a Daedalus perturbation into a physical poster. You can watch the demo of the attack on YouTube:
-[![Watch the video](https://www.youtube.com/watch?v=gps37SqC7dU&feature=youtu.be)
+[![Watch the video](https://www.youtube.com/watch?v=gps37SqC7dU&feature=youtu.be)]
 
 ---
 
