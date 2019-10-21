@@ -7,7 +7,7 @@ Some results are displayed here:
 ![Alt text](resources/l2attack.jpg)
 *Adversarial examples made by our L2 attack. The first row contains original images. The third row contains our low-confidence (0.3) adversarial examples. The fifth row contains our high-confidence (0.7) examples. The detection results from YOLO-v3 are in the rows below them. The confidence controls the density of the redundant detection boxes in the detection results.*
 
-**Real-world attack via a Daedalus poster**
+**Launching real-world attacks via a Daedalus poster**
 
 We instantiated the Daedalus perturbation into a physical poster. You can watch the demo of the attack on YouTube:
 [![Watch the video](https://img.youtube.com/vi/gps37SqC7dU/maxresdefault.jpg)](https://www.youtube.com/watch?v=gps37SqC7dU)
