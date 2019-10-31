@@ -33,3 +33,11 @@ The code for generating the poster will be released soon.
 Run l2_ensemble.py after completing the above setups for YOLO-v3 and RetinaNet attacks.
 
 All attacks can specify object categories to attack. Crafted adversarial examples will be stored as 416X416 sized .png files in '../adv_examples/...'. The examples can be tested on official darknet and retinanet.
+
+**If you find it is useful and use it in your publication. Please kindly cite this work as follows:**
+@article{wang2019daedalus,
+  title={Daedalus: Breaking Non-Maximum Suppression in Object Detection via Adversarial Examples},
+  author={Wang, Derui and Li, Chaoran and Wen, Sheng and Nepal, Surya and Xiang, Yang},
+  journal={arXiv preprint arXiv:1902.02067},
+  year={2019}
+}
