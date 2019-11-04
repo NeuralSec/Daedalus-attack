@@ -10,7 +10,7 @@ Some results are displayed here:
 **Launching real-world attacks via a Daedalus poster**
 
 We instantiated the Daedalus perturbation into a physical poster. You can watch the demo of the attack on YouTube:
-[![Watch the video](https://img.youtube.com/vi/gps37SqC7dU/maxresdefault.jpg)](https://www.youtube.com/watch?v=gps37SqC7dU)
+[![Watch the video](https://img.youtube.com/vi/U1LsTl8vufM/maxresdefault.jpg)](https://www.youtube.com/watch?v=U1LsTl8vufM)
 The code for generating the poster will be released soon.
 
 ---
