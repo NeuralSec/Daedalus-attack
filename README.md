@@ -11,7 +11,7 @@ Some results are displayed here:
 
 We instantiated the Daedalus perturbation into a physical poster. You can watch the demo of the attack on YouTube:
 [![Watch the video](https://img.youtube.com/vi/U1LsTl8vufM/maxresdefault.jpg)](https://www.youtube.com/watch?v=U1LsTl8vufM)
-The code for generating the poster will be released soon.
+The code for generating posters against YOLO-v3 is in [this](https://github.com/NeuralSec/Daedalus-physical) repository (for academic purpose only).
 
 ---
 
