@@ -37,13 +37,14 @@ All attacks can specify object categories to attack. Crafted adversarial example
 Cite this work:
 
 ```
-@artical{9313033,  
-author={Wang, Derui and Li, Chaoran and Wen, Sheng and Han, Qing-Long and Nepal, Surya and Zhang, Xiangyu and Xiang, Yang}, 
-journal={IEEE Transactions on Cybernetics},  
-title={Daedalus: Breaking Nonmaximum Suppression in Object Detection via Adversarial Examples},  
-year={2021}, 
-volume={}, 
-number={},
-pages={1-14},
-doi={10.1109/TCYB.2020.3041481}}
+@article{wang2021daedalus,
+  title={Daedalus: Breaking nonmaximum suppression in object detection via adversarial examples},
+  author={Wang, Derui and Li, Chaoran and Wen, Sheng and Han, Qing-Long and Nepal, Surya and Zhang, Xiangyu and Xiang, Yang},
+  journal={IEEE Transactions on Cybernetics},
+  volume={52},
+  number={8},
+  pages={7427--7440},
+  year={2021},
+  publisher={IEEE}
+}
 ```
